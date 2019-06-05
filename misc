@@ -1,0 +1,5 @@
+#!/bin/bash
+
+function route-ip {
+    sudo iptables -t nat -A OUTPUT -p all -d $1 -j DNAT --to-destination $2
+}

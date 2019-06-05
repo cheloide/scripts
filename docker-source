@@ -1,0 +1,63 @@
+#!/bin/bash
+
+function docker-run-oracle11g () {
+
+    IMAGE_NAME='wnameless/oracle-xe-11g'
+    CONTAINER_NAME='oracle11g'
+    ENV="-e ORACLE_ALLOW_REMOTE=true"
+    PORTS="-p 1521:1521"
+
+    if [ "$(docker ps -aq -f name=$CONTAINER_NAME)" ]; then
+        if [ "$(docker ps -aq -f status=running -f name=$CONTAINER_NAME)" ]; then
+            echo 'Container already running'
+        elif [ "$(docker ps -aq -f status=exited -f name=$CONTAINER_NAME)" ]; then
+            echo "running $IMAGE_NAME ($CONTAINER_NAME)"
+            docker start $CONTAINER_NAME;
+        else
+            echo "running $IMAGE_NAME ($CONTAINER_NAME)"
+            bash -c "docker run -d --name $CONTAINER_NAME $PORTS $ENV $IMAGE_NAME"
+        fi
+    else
+            bash -c "docker run -d --name $CONTAINER_NAME $PORTS $ENV $IMAGE_NAME"
+    fi
+}
+
+function docker-stop-oracle11g () {
+
+    IMAGE_NAME='wnameless/oracle-xe-11g'
+    CONTAINER_NAME='oracle11g'
+
+    echo "stopping $IMAGE_NAME ($CONTAINER_NAME)"
+    docker stop $CONTAINER_NAME
+}
+
+function docker-run-wls1036 () {
+
+    IMAGE_NAME='cheloide/wls1036'
+    CONTAINER_NAME='wls1036'
+    ENV=""
+    PORTS="-p 7001:7001 -p 7002:7002 -p 8001:8001 -p 5556:5556"
+
+    if [ "$(docker ps -aq -f name=$CONTAINER_NAME)" ]; then
+        if [ "$(docker ps -aq -f status=running -f name=$CONTAINER_NAME)" ]; then
+            echo 'Container already running'
+        elif [ "$(docker ps -aq -f status=exited -f name=$CONTAINER_NAME)" ]; then
+            echo "running $IMAGE_NAME ($CONTAINER_NAME)"
+            docker start $CONTAINER_NAME;
+        else
+            echo "running $IMAGE_NAME ($CONTAINER_NAME)"
+            bash -c "docker run -d --name $CONTAINER_NAME $PORTS $ENV $IMAGE_NAME"
+        fi
+    else
+            bash -c "docker run -d --name $CONTAINER_NAME $PORTS $ENV $IMAGE_NAME"
+    fi
+}
+
+function docker-stop-wls1036 () {
+
+    IMAGE_NAME='cheloide/wls1036'
+    CONTAINER_NAME='wls1036'
+
+    echo "stopping $IMAGE_NAME ($CONTAINER_NAME)"
+    docker stop $CONTAINER_NAME
+}

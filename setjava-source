@@ -1,0 +1,17 @@
+#!/bin/bash
+
+function setjava-oracle-jdk6u45 () {
+    $( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )/setjava "/opt/java/oracle-jdk6u45"
+}
+
+function setjava-oracle-jdk8u201 () {
+    $( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )/setjava "/opt/java/oracle-jdk8u201"
+}
+
+#function setjava-open-jdk8u202-b08 () {
+#    $( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )/setjava "/opt/java/open-jdk8u202-b08"
+#}
+#
+#function setjava-open-jdk11u13 () {
+#    $( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )/setjava  "/opt/java/open-jdk11u13"
+#}
