@@ -1,17 +1,25 @@
 #!/bin/bash
 
-function setjava-oracle-jdk6u45 () {
-    $( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )/setjava "/opt/java/oracle-jdk6u45"
+function setjava () {
+
+    JDK_HOME=
+    case  $1  in
+        oracle-jdk8u221)       
+            JDK_HOME="/opt/java/oracle-jdk8u221"
+            ;;
+        *)
+    esac 
+
+    if [ ! -z "$JDK_HOME" ]; then
+        $( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )/setjava $JDK_HOME
+    else
+        OPTIONS=
+        printf "\"$1\" is not a valid java choice, available options are:
+    oracle-jdk8u221\n"
+    fi
 }
 
-function setjava-oracle-jdk8u201 () {
-    $( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )/setjava "/opt/java/oracle-jdk8u201"
-}
+if  [ ! -z "$(command -v complete)" ]; then
+    complete -W "oracle-jdk8u221" setjava
+fi
 
-#function setjava-open-jdk8u202-b08 () {
-#    $( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )/setjava "/opt/java/open-jdk8u202-b08"
-#}
-#
-#function setjava-open-jdk11u13 () {
-#    $( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )/setjava  "/opt/java/open-jdk11u13"
-#}
