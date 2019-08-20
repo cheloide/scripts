@@ -1,0 +1,51 @@
+#!/bin/bash
+
+function docker-sh.oracle11g () {
+
+    IMAGE_NAME='wnameless/oracle-xe-11g'
+    CONTAINER_NAME='oracle11g'
+    ENV="-e ORACLE_ALLOW_REMOTE=true"
+    PORTS="-p 1521:1521"
+
+    if [ -z $1  ] || [ "$1" == "start" ] || [ "$1" == "run" ]; then
+        $( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )/docker/run.sh "$IMAGE_NAME" "$CONTAINER_NAME" "$ENV" "$PORTS"
+    elif [ "$1" == "stop" ]; then
+        $( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )/docker/stop.sh "$IMAGE_NAME" "$CONTAINER_NAME"
+    else
+        echo "invalid argument"
+    fi
+}
+
+function docker-sh.wls1036 () {
+
+    IMAGE_NAME='cheloide/wls1036'
+    CONTAINER_NAME='wls1036'
+    ENV=""
+    PORTS="-p 7001:7001 -p 7002:7002 -p 8001:8001 -p 5556:5556"
+
+    if [ -z $1  ] || [ "$1" == "start" ] || [ "$1" == "run" ]; then
+        $( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )/docker/run.sh "$IMAGE_NAME" "$CONTAINER_NAME" "$ENV" "$PORTS"
+    elif [ "$1" == "stop" ]; then
+        $( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )/docker/stop.sh "$IMAGE_NAME" "$CONTAINER_NAME"
+    else
+        echo "invalid argument"
+    fi
+
+}
+
+function docker-sh.redis () {
+
+    IMAGE_NAME='bitnami/redis:latest'
+    CONTAINER_NAME='redis'
+    ENV="-e ALLOW_EMPTY_PASSWORD=yes"
+    PORTS="-p 6379:6379"
+
+    if [ -z $1  ] || [ "$1" == "start" ] || [ "$1" == "run" ]; then
+        $( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )/docker/run.sh "$IMAGE_NAME" "$CONTAINER_NAME" "$ENV" "$PORTS"
+    elif [ "$1" == "stop" ]; then
+        $( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )/docker/stop.sh "$IMAGE_NAME" "$CONTAINER_NAME"
+    else
+        echo "invalid argument"
+    fi
+
+}

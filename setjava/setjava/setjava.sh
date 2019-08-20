@@ -21,6 +21,7 @@ function setjava () {
         sudo update-alternatives  --set java $1/bin/java
         sudo update-alternatives  --set javac $1/bin/javac
         
+        setjava-optional $1 keytool
         setjava-optional $1 wsimport
         setjava-optional $1 wsgen
         setjava-optional $1 pack200

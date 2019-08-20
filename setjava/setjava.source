@@ -1,0 +1,34 @@
+#!/bin/bash
+
+function setjava () {
+
+    JDK_HOME=
+    case  $1  in
+        oracle-jdk6u45)       
+            JDK_HOME="/opt/java/oracle-jdk6u45"
+            ;;
+        oracle-jdk7u80)       
+            JDK_HOME="/opt/java/oracle-jdk7u80"
+            ;;
+        oracle-jdk8u221)       
+            JDK_HOME="/opt/java/oracle-jdk8u221"
+            ;;
+        *)
+    esac 
+
+    if [ ! -z "$JDK_HOME" ]; then
+        $( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )/setjava/setjava.sh $JDK_HOME
+    else
+        OPTIONS=
+        printf "\"$1\" is not a valid java choice, available options are:
+    oracle-jdk6u45\n
+    oracle-jdk7u80\n
+    oracle-jdk8u221\n    
+    "
+    fi
+}
+
+if  [ ! -z "$(command -v complete)" ]; then
+    complete -W "oracle-jdk6u45 oracle-jdk7u80 oracle-jdk8u221" setjava
+fi
+
