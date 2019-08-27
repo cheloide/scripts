@@ -1,0 +1,14 @@
+#!/bin/bash
+
+function codium-update {
+
+    sudo echo "Updating/Installing Codium"
+
+    LATEST_CODIUM_VER=`curl --silent "https://api.github.com/repos/VSCodium/vscodium/releases/latest" | grep -E "browser_download_url.*?_amd64\.deb\"" | sed -E 's/.*"([^"]+)".*/\1/'`
+    TEMP_DIR=$(mktemp -d)
+    wget $LATEST_CODIUM_VER -O $TEMP_DIR/codium.deb
+    sudo dpkg -i  $TEMP_DIR/*.deb
+    sudo apt install -f
+
+    rm -f $TEMP_DIR
+}
