@@ -10,5 +10,5 @@ function codium-update {
     sudo dpkg -i  $TEMP_DIR/*.deb
     sudo apt install -f
 
-    rm -f $TEMP_DIR
+    rm -r $TEMP_DIR
 }
