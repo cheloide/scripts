@@ -3,11 +3,18 @@
 
 
 function list-download {
+	FILE=$1
     while read line; do
-        url="${line%@*}"
-        dest="${line//$url@}"
-        # echo "$url >> $dest" ;
-        axel -n 10 "$url" -c -o "$dest"
-    done < "${1}"
+	if [[ ! $line =~ ^\s*#.* ]]; then
+	        url="${line%@*}"
+        	dest="${line//$url@}"
+	        echo URL $url >> DEST $dest
+			aria2c -x 16 --continue=true --dir="${dest%/*}" -o "$(basename "$dest")" "$url"
+		# sleep 5
+		if [ $? -eq 0 ]; then
+			rpl "${line}" "#${line}" "$FILE"
+		fi
+	fi
+    done < "$FILE"
 
 }
