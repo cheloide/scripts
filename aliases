@@ -1,0 +1,4 @@
+#!/bin/bash
+
+alias toggle-dns="sudo mv /etc/resolv.conf /etc/resolv.aux && sudo mv /etc/resolv.toggle /etc/resolv.conf && sudo mv /etc/resolv.aux /etc/resolv.toggle"
+alias disable-touchpad="xinput set-prop \"$(xinput |grep 'Wireless Controller Touchpad'|sed -r 's/.*id=([0-9]+).*/\1/g' )\" 155 0"
