@@ -74,30 +74,6 @@ Comment[pt_BR]=Navegue na Internet
 Comment[ru]=Обозреватель Всемирной Паутины
 Comment[sk]=Prehliadanie internetu
 Comment[sv]=Surfa på webben
-GenericName=Web Browser
-GenericName[bg]=Интернет браузър
-GenericName[ca]=Navegador web
-GenericName[cs]=Webový prohlížeč
-GenericName[de]=Webbrowser
-GenericName[el]=Περιηγητής ιστού
-GenericName[es]=Navegador web
-GenericName[fa]=مرورگر اینترنتی
-GenericName[fi]=WWW-selain
-GenericName[fr]=Navigateur Web
-GenericName[hu]=Webböngésző
-GenericName[it]=Browser Web
-GenericName[ja]=ウェブ・ブラウザ
-GenericName[ko]=웹 브라우저
-GenericName[nb]=Nettleser
-GenericName[nl]=Webbrowser
-GenericName[nn]=Nettlesar
-GenericName[no]=Nettleser
-GenericName[pl]=Przeglądarka WWWNetwork;WebBrowser;
-GenericName[pt]=Navegador Web
-GenericName[pt_BR]=Navegador WebNetwork;WebBrowser;
-GenericName[ru]=Интернет-браузер
-GenericName[sk]=Internetový prehliadač
-GenericName[sv]=Webbläsare
 X-GNOME-FullName=Firefox Web Browser
 X-GNOME-FullName[bg]=Интернет браузър (Firefox)
 X-GNOME-FullName[ca]=Navegador web Firefox
@@ -134,4 +110,3 @@ StartupNotify=true" > /usr/share/applications/firefox.desktop
 else
     echo 'Please run as superuser'
 fi
-

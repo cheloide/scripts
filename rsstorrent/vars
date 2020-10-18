@@ -1,0 +1,6 @@
+RSS_URL="https://subsplease.org/rss/?t&r=720"
+PREFIX="[SubsPlease]"
+DELUGE_HOST=192.168.0.253:58846
+DELUGE_USERNAME=deluge
+DELUGE_PASSWORD=deluge123
+DELUGE_DOWNLOAD_BASE_PATH=/var/lib/deluge/Completed
