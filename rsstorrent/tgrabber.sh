@@ -4,10 +4,11 @@
 
 SCRIPT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )
 
+BASEPATH=${1:-$SCRIPT_DIR}
 
-VARS_PATH=$SCRIPT_DIR/vars
-SHOWS_PATH=$SCRIPT_DIR/shows
-ADDED_PATH=$SCRIPT_DIR/shows
+VARS_PATH=$BASEPATH/vars
+SHOWS_PATH=$BASEPATH/shows
+ADDED_PATH=$BASEPATH/added
 
 . $VARS_PATH
 
